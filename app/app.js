@@ -29,6 +29,7 @@ const searchFood = () => {
     // console.log('hello');
     emptyBox('block')
     noResult('none')  //if empty search press then noresult will be no result
+    toggleCard('none') //card is not show
   }
   else{
   //add spinner
