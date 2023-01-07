@@ -1,10 +1,21 @@
-// spinners 
-const toggleSpinner = displaySpinner =>{
-  document.getElementById('spinner').style.display = displaySpinner;  
-}
-const toggleCard = displaySpinner =>{
-  document.getElementById('card').style.display = displaySpinner;  
-}
+// spinners
+const toggleSpinner = (displaySpinner) => {
+  document.getElementById("spinner").style.display = displaySpinner;
+};
+// when spinner show then card will hidden
+const toggleCard = (displaySpinner) => {
+  document.getElementById("card").style.display = displaySpinner;
+};
+
+// empty box
+const emptyBox = (displayAlert) => {
+  document.getElementById("emptyBox").style.display = displayAlert;
+};
+
+// No Result
+const noResult = (displayAlert) => {
+  document.getElementById("noResult").style.display = displayAlert;
+};
 
 // searching input
 const searchFood = () => {
@@ -12,30 +23,51 @@ const searchFood = () => {
   const searchText = searchField.value;
   // console.log(searchText);
 
-  //add spinner
-  toggleSpinner('block')
-  toggleCard('none')
-  // clear the input field
-  searchField.value = "";
+  if (searchText === "") {
+    // console.log('hello');
+    emptyBox("block");
+    noResult("none"); //if empty search press then noresult will be none
+  } else {
+    //add spinner
+    toggleSpinner("block");
+    toggleCard("none");
 
-  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => displaySearchFood(data.meals));
+    // emptybox search or no result
+    emptyBox("none");
+    noResult("none");
+    // clear the input field
+    searchField.value = "";
+
+    // fetch the url
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => displaySearchFood(data.meals));
+  }
 };
 
 // display the card
 const displaySearchFood = (datas) => {
   const foodCard = document.getElementById("foodCard");
+
+  // remove the previous card
   foodCard.textContent = "";
+
+  // no result alert
+  if (datas === null) {
+    console.log("null value");
+    toggleSpinner("none");
+    noResult("block");
+  }
   datas.forEach((data) => {
-    console.log(data);
+    // console.log(data);
+    // create card
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
         <div class="col shadow">
               <div class="card h-100 text-center">
-                <img  style="height: 250px;width: 300px;" src="${data.strMealThumb}" class="card-img-top p-2" alt="...">
+                <img style="height: 250px;width: 300px;" src="${data.strMealThumb}" class="card-img-top p-2 rounded" alt="...">
                 <div class="card-body">
                   <h5 class="card-title mb-3">${data.strMeal}</h5>
                   <!-- Button trigger modal -->
@@ -48,11 +80,15 @@ const displaySearchFood = (datas) => {
         `;
     foodCard.appendChild(div);
   });
+
+  // no result alert
+  noResult("none");
   //add spinner
-  toggleSpinner('none')
-  toggleCard('block')
+  toggleSpinner("none");
+  toggleCard("block");
 };
 
+//this function call by button
 const detailsInfo = (idMeal) => {
   // console.log(idMeal);
   const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`;
@@ -63,8 +99,12 @@ const detailsInfo = (idMeal) => {
 
 const displayDetailsInfo = (meals) => {
   // console.log(meals);
+  // new card start from here
   const ditailInfo = document.getElementById("ditailInfo");
+
+  // remove the previous card
   ditailInfo.textContent = "";
+
   const div = document.createElement("div");
   div.classList.add("modal-body");
   div.innerHTML = `

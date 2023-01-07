@@ -11,14 +11,13 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <style>
-      #spinner{
-        display: none;
-      }
-    </style>
+    <!-- added favicon -->
+    <link rel="shortcut icon" href="https://icon-library.com/images/icon-food/icon-food-13.jpg" type="image/x-icon" />
+    <!-- style link -->
+    <link rel="stylesheet" href="style.css" />
     <title>Food Gallery</title>
   </head>
-  <body>
+  <body class="bg-body-tertiary">
     <!-- header site start -->
     <h1 class="text-center mt-3">Find Meals For Your Ingredients</h1>
     <h6 class="text-center">
@@ -32,24 +31,25 @@
         id="search-field"
         placeholder="search your favorite food"
         type="text"
-        class="form-control"
+        class="form-control p-2"
         placeholder="Recipient's username"
         aria-label="Recipient's username"
         aria-describedby="button-addon2"
         autofocus
       />
-      <button onclick="searchFood()" class="btn btn-warning" type="button" id="button-addon2">Search</button>
+      <button onclick="searchFood()" class="btn btn-warning px-4 fw-bold" type="button" id="button-addon2">Search</button>
     </div>
     <!-- searching site end -->
-
     <!-- added spinners -->
     <div id="spinner" class="text-center">
-      <div class="spinner-border  text-warning" role="status">
+      <div class="spinner-border text-warning" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
     <!-- spinners end -->
-
+    <!-- alert  -->
+    <div id="emptyBox" class="alert alert-danger w-50 mx-auto" role="alert">Empty value is not allow—check it out!</div>
+    <div id="noResult" class="alert alert-info w-50 mx-auto" role="alert">No result found —check it out!</div>
     <!-- Modal -->
     <div
       class="modal fade"
@@ -78,7 +78,6 @@
       <div id="foodCard" class="row row-cols-1 row-cols-md-4 g-4 m-4"></div>
     </div>
     <!-- card end -->
-
     <!-- js bootstrap link -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
