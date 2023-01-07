@@ -26,7 +26,7 @@
     </h6>
     <!-- header site end -->
     <!-- searching site start -->
-    <div class="input-group mt-3 pb-5 w-50 mx-auto">
+    <div class="input-group mt-3 w-50 mx-auto">
       <input
         id="search-field"
         placeholder="search your favorite food"
@@ -37,7 +37,7 @@
         aria-describedby="button-addon2"
         autofocus
       />
-      <button onclick="searchFood()" class="btn btn-warning px-4 fw-bold" type="button" id="button-addon2">Search</button>
+      <button onclick="searchFood()" class="btn btn-warning fw-bold" type="button" id="button-addon2">Search</button>
     </div>
     <!-- searching site end -->
     <!-- added spinners -->
@@ -48,8 +48,8 @@
     </div>
     <!-- spinners end -->
     <!-- alert  -->
-    <div id="emptyBox" class="alert alert-danger w-50 mx-auto" role="alert">Empty value is not allow—check it out!</div>
-    <div id="noResult" class="alert alert-info w-50 mx-auto" role="alert">No result found —check it out!</div>
+    <div id="emptyBox" class="alert alert-danger w-50 mx-auto my-5" role="alert">Empty value is not allow—check it out!</div>
+    <div id="noResult" class="alert alert-info w-50 mx-auto my-5" role="alert">No result found —check it out!</div>
     <!-- Modal -->
     <div
       class="modal fade"
@@ -75,7 +75,7 @@
     <!-- modal end -->
     <!-- card -->
     <div id="card" class="mt-5">
-      <div id="foodCard" class="row row-cols-1 row-cols-md-4 g-4 m-4"></div>
+      <div id="foodCard" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 m-4"></div>
     </div>
     <!-- card end -->
     <!-- js bootstrap link -->

@@ -1,21 +1,23 @@
-// spinners
-const toggleSpinner = (displaySpinner) => {
-  document.getElementById("spinner").style.display = displaySpinner;
-};
+// spinners 
+const toggleSpinner = displaySpinner =>{
+  document.getElementById('spinner').style.display = displaySpinner;  
+}
 // when spinner show then card will hidden
-const toggleCard = (displaySpinner) => {
-  document.getElementById("card").style.display = displaySpinner;
-};
+const toggleCard = displaySpinner =>{
+  document.getElementById('card').style.display = displaySpinner;  
+}
 
-// empty box
-const emptyBox = (displayAlert) => {
-  document.getElementById("emptyBox").style.display = displayAlert;
-};
 
-// No Result
-const noResult = (displayAlert) => {
-  document.getElementById("noResult").style.display = displayAlert;
-};
+// empty box 
+const emptyBox = displayAlert =>{
+  document.getElementById('emptyBox').style.display = displayAlert;
+}
+
+
+// No Result 
+const noResult = displayAlert =>{
+  document.getElementById('noResult').style.display = displayAlert;
+}
 
 // searching input
 const searchFood = () => {
@@ -23,26 +25,27 @@ const searchFood = () => {
   const searchText = searchField.value;
   // console.log(searchText);
 
-  if (searchText === "") {
+  if(searchText === ''){
     // console.log('hello');
-    emptyBox("block");
-    noResult("none"); //if empty search press then noresult will be none
-  } else {
-    //add spinner
-    toggleSpinner("block");
-    toggleCard("none");
+    emptyBox('block')
+    noResult('none')  //if empty search press then noresult will be no result
+  }
+  else{
+  //add spinner
+  toggleSpinner('block')
+  toggleCard('none')
+ 
+  // emptybox search or no result 
+  emptyBox('none')
+  noResult('none')
+  // clear the input field
+  searchField.value = "";
 
-    // emptybox search or no result
-    emptyBox("none");
-    noResult("none");
-    // clear the input field
-    searchField.value = "";
-
-    // fetch the url
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => displaySearchFood(data.meals));
+  // fetch the url
+  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displaySearchFood(data.meals));
   }
 };
 
@@ -50,24 +53,24 @@ const searchFood = () => {
 const displaySearchFood = (datas) => {
   const foodCard = document.getElementById("foodCard");
 
-  // remove the previous card
+  // remove the previous card 
   foodCard.textContent = "";
 
   // no result alert
-  if (datas === null) {
-    console.log("null value");
-    toggleSpinner("none");
-    noResult("block");
+  if(datas === null){
+    console.log('null value');
+    toggleSpinner('none')
+    noResult('block')
   }
   datas.forEach((data) => {
     // console.log(data);
-    // create card
+    // create card 
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
         <div class="col shadow">
               <div class="card h-100 text-center">
-                <img style="height: 250px;width: 300px;" src="${data.strMealThumb}" class="card-img-top p-2 rounded" alt="...">
+                <img style="height: 300px;" src="${data.strMealThumb}" class="card-img-top p-2 rounded" alt="...">
                 <div class="card-body">
                   <h5 class="card-title mb-3">${data.strMeal}</h5>
                   <!-- Button trigger modal -->
@@ -82,10 +85,10 @@ const displaySearchFood = (datas) => {
   });
 
   // no result alert
-  noResult("none");
+  noResult('none')
   //add spinner
-  toggleSpinner("none");
-  toggleCard("block");
+  toggleSpinner('none')
+  toggleCard('block')
 };
 
 //this function call by button
@@ -102,7 +105,7 @@ const displayDetailsInfo = (meals) => {
   // new card start from here
   const ditailInfo = document.getElementById("ditailInfo");
 
-  // remove the previous card
+  // remove the previous card 
   ditailInfo.textContent = "";
 
   const div = document.createElement("div");
