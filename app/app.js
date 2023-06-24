@@ -64,7 +64,7 @@ const displaySearchFood = (datas) => {
     noResult('block')
   }
   datas.forEach((data) => {
-    // console.log(data);
+    console.log(data);
     // create card 
     const div = document.createElement("div");
     div.classList.add("col");

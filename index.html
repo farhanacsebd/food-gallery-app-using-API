@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- bootsrap css link -->
+    <!-- bootstrap css link -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,33 +15,46 @@
     <link rel="shortcut icon" href="https://icon-library.com/images/icon-food/icon-food-13.jpg" type="image/x-icon" />
     <!-- style link -->
     <link rel="stylesheet" href="style.css" />
+     <!-- font-awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Food Gallery</title>
   </head>
   <body class="bg-body-tertiary">
-    <!-- header site start -->
-    <h1 class="text-center mt-3">Find Meals For Your Ingredients</h1>
-    <h6 class="text-center">
-      Real food doesn't have ingredients, real food is ingredients.<br />
-      <cite>- Jamie Oliver</cite>
-    </h6>
-    <!-- header site end -->
-    <!-- searching site start -->
-    <div class="input-group mt-3 w-50 mx-auto">
-      <input
-        id="search-field"
-        placeholder="search your favorite food"
-        type="text"
-        class="form-control p-2"
-        placeholder="Recipient's username"
-        aria-label="Recipient's username"
-        aria-describedby="button-addon2"
-        autofocus
-      />
-      <button onclick="searchFood()" class="btn btn-warning fw-bold" type="button" id="button-addon2">Search</button>
-    </div>
-    <!-- searching site end -->
+   <section class="hero text-white">
+     <!-- navigation bar -->
+     <nav class="navbar bg-transparent">
+      <div class="container">
+        <a class="navbar-brand text-white fs-3 fw-bold text-uppercase" href="#">
+          <img src="./pic/icon.png" alt="Bootstrap" width="90" height="60" />Foodies🍽️Only
+        </a>
+      </div>
+    </nav>
+    <!-- navigation bar -->
+     <!-- header site start -->
+     <h1 class="text-center pt-5">Find Meals For Your Ingredients</h1>
+     <h6 class="text-center">
+       Real food doesn't have ingredients, real food is ingredients.<br />
+       <cite>- Jamie Oliver</cite>
+     </h6>
+     <!-- header site end -->
+     <!-- searching site start -->
+     <div class="input-group mt-3 w-50 mx-auto">
+       <input
+         id="search-field"
+         placeholder="search your favorite food"
+         type="text"
+         class="form-control p-2"
+         placeholder="Recipient's username"
+         aria-label="Recipient's username"
+         aria-describedby="button-addon2"
+         autofocus
+       />
+       <button onclick="searchFood()" class="btn btn-warning fw-bold" type="button" id="button-addon2">Search</button>
+     </div>
+     <!-- searching site end -->
+   </section>
     <!-- added spinners -->
-    <div id="spinner" class="text-center">
+    <div id="spinner" class="text-center mt-5">
       <div class="spinner-border text-warning" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
@@ -78,6 +91,31 @@
       <div id="foodCard" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 m-4"></div>
     </div>
     <!-- card end -->
+    <!-- footer start -->
+<div class="mt-5 footer-pic">
+  <footer class="text-lg-start">
+    <div class="container pt-5 d-flex justify-content-center py-4">
+      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        <i class="fab fa-youtube"></i>
+      </button>
+      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        <i class="fab fa-instagram"></i>
+      </button>
+      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        <i class="fab fa-twitter"></i>
+      </button>
+    </div>
+    <!-- Copyright -->
+    <div class="text-center fw-bold text-white p-3">
+      © 2023 Copyright:
+      <a class="text-white href="https://github.com/farhanacsebd?tab=repositories"><cite>Farhana Binte Hasan</cite></a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</div>
     <!-- js bootstrap link -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
