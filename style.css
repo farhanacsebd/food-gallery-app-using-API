@@ -6,11 +6,11 @@
 
 .hero{
   background: url(./pic/hero.jpg);
-  background-position: bottom;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  height: 70vh;
+  height: 60vh;
 }
 
 
@@ -31,9 +31,13 @@ nav a{
 }
 
 
+#SearchTitle {
+  display: none;
+}
+
 .footer-pic{
-  background: url(./pic/footer.jpg) no-repeat;
+  background: url(./pic/hero.jpg) no-repeat;
   background-size: cover;
-  background-position: top;
-  height: 40vh;
+  background-position: bottom;
+  height: 48vh;
 }
