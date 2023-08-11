@@ -129,8 +129,8 @@ const displayDetailsInfo = (meals) => {
             <p class="card-text fw-bold">${meals.strInstructions.slice(
               0,
               200
-            )}</p>
-            <a href="${meals.strYoutube}" class="btn btn-danger">Watch Video</a>
+            )}....</p>
+            <a href="${meals.strYoutube}" target="_blank" class="btn btn-danger">Watch Video</a>
           </div>
       `;
   ditailInfo.appendChild(div);
